@@ -1,0 +1,27 @@
+# configs/model_params.yaml
+
+# 1. Cấu hình Dynamic Triple-Barrier Labeling
+triple_barrier:
+  h: 5                       # Cửa sổ thời gian nắm giữ tối đa (Holding period)
+  pt: 1.0                    # Hệ số rào cản chốt lời (Profit Taking) nhân với biến động[cite: 1, 2, 3]
+  sl: 1.0                    # Hệ số rào cản cắt lỗ (Stop Loss) nhân với biến động[cite: 1, 2, 3]
+  vol_span: 20               # Chu kỳ EWMA ước lượng độ biến động cục bộ[cite: 1, 2, 3]
+
+# 2. Cấu hình Mô hình XGBoost & Signal Generator
+model:
+  random_state: 42
+  confidence_threshold: 0.55 # Ngưỡng xác suất tin cậy cao để sinh tín hiệu giao dịch[cite: 1, 2, 3]
+  search_spaces:             # Không gian tìm kiếm siêu tham số qua RandomizedSearchCV[cite: 2, 3]
+    n_estimators: [50, 100, 150]
+    max_depth: [2, 3]        # Giới hạn độ sâu để chống overfitting[cite: 1, 2, 3]
+    learning_rate: [0.01, 0.05]
+    subsample: [0.6, 0.8]
+    colsample_bytree: [0.6, 0.8]
+    reg_alpha: [0.1, 0.5, 1.0, 5.0]
+    reg_lambda: [1.0, 5.0, 10.0]
+
+# 3. Cấu hình GMM Regime Clustering
+gmm_regime:
+  window: 120                # Cửa sổ rolling huấn luyện Gaussian Mixture Model[cite: 2, 3]
+  update_freq: 20            # Tần suất cập nhật lại mô hình GMM[cite: 2, 3]
+  hard_filter_threshold: 0.5 # Ngưỡng xác suất High_Vol để kích hoạt đóng băng vị thế[cite: 1, 2]

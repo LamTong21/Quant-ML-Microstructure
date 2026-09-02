@@ -1,0 +1,27 @@
+# configs/pipeline_config.yaml
+
+# 1. Cấu hình Khử dư thừa Tuyến tính & Phi tuyến (Phase 1)
+redundancy_control:
+  pearson_threshold: 0.85    # Ngưỡng loại bỏ tương quan cặp cực hạn[cite: 2, 3]
+  max_vif: 5.0               # Ngưỡng hệ số phóng đại phương sai (Variance Inflation Factor)[cite: 1, 2, 3]
+  max_clusters: 15           # Số lượng cụm HRP tối đa để trích xuất Medoids[cite: 1, 2, 3]
+  linkage_method: "ward"     # Thuật toán liên kết phân cụm phân cấp[cite: 2, 3]
+
+# 2. Cấu hình Sàng lọc Nhân quả Kép (Phase 2)
+causality:
+  max_lag: 5                 # Độ trễ kiểm định tối đa cho Granger Causality[cite: 1, 2, 3]
+  p_value_threshold: 0.05    # Mức ý nghĩa thống kê của F-test[cite: 2, 3]
+  
+# 3. Cấu hình Máy biến đổi Động học (Phase 3)
+kinematics:
+  zscore_window: 20          # Cửa sổ chuẩn hóa phương sai cục bộ cho các biến trễ (Volatility-scaled)[cite: 1, 2, 3]
+
+# 4. Cấu hình Lượng thông tin tương hỗ - Mutual Information (Phase 4)
+information_theory:
+  mi_threshold: 0.01         # Ngưỡng kỳ vọng Transfer Entropy / MI tối thiểu để chấp nhận[cite: 1, 2, 3]
+
+# 5. Cấu hình Cảm biến DGP cơ sở (Stage 2)
+dgp_sensor:
+  fractional_diff_step: 0.05 # Bước nhảy tìm bậc d* vi phân phân số[cite: 2, 3]
+  bns_jump_window: 20        # Cửa sổ tách biến động bước nhảy Barndorff-Nielsen & Shephard[cite: 1, 2, 3]
+  bns_jump_threshold: 0.25   # Ngưỡng tỷ lệ J_t xác định có bước nhảy[cite: 2, 3]

@@ -1,0 +1,20 @@
+# configs/asset_config.yaml
+
+# 1. Cấu hình Tài sản & Dữ liệu
+symbol: "DIG"                # Mã cổ phiếu thực nghiệm[cite: 2, 3]
+start_date: "2018-01-01"     # Ngày bắt đầu tải dữ liệu[cite: 2]
+end_date: "2026-06-01"       # Ngày kết thúc tải dữ liệu[cite: 2, 3]
+data_source: "KBS"           # Nguồn dữ liệu (KBS, VCI, TCBS)[cite: 2, 3]
+max_l2_depth: 10             # Số tầng Limit Order Book tối đa cần quét (nếu có)[cite: 2]
+
+# 2. Cấu hình Purged Walk-Forward CV
+cv:
+  n_splits: 5                # Số lượng Folds tịnh tiến
+  purge_gap: 5               # Khoảng cách thanh lọc (chặn rò rỉ nhãn h=5)[cite: 1, 2, 3]
+  buffer_days: 60            # Vùng đệm trễ để khởi tạo các chỉ báo rolling[cite: 1, 2, 3]
+
+# 3. Cấu hình Giả lập Thực thi Backtest
+backtest:
+  fee_bps: 15.0              # Phí môi giới và thuế (Basis points)[cite: 1, 2, 3]
+  slippage_bps: 5.0          # Trượt giá danh nghĩa (Basis points)[cite: 1, 2, 3]
+  execution_lag: 1           # Độ trễ khớp lệnh t+1[cite: 1, 2, 3]
