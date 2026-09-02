@@ -492,7 +492,7 @@ Kiểm toán vật lý trên 1,996 phiên giao dịch xác nhận dữ liệu tu
 - Dữ liệu sạch sau Forward-Adjustment & Dán nhãn: 1,996 phiên [cite: 1].
 - Phần mở rộng vi cấu trúc: Bộ nạp dữ liệu lại đã trích xuất thành công chuỗi nến 15 phút nội phiên để đồng bộ các chỉ báo vi mô cuối ngày [cite: 1].
 
-![Figure 4.1](figures/Figure 4.1.png)
+![Figure 4.1](./figures/Figure%204.1.png)
 *Figure 4.1: Out-of-Sample Cumulative Return ML Contrarian Strategy vs Buy & Hold Benchmark across 5 Purged Walk-Forward Folds (Net of 20 bps Transaction Frictions & t+1 Execution Lag) [cite: 1].*
 
 **Bảng 1: Trích lục Mẫu Dữ liệu sau Dán nhãn Ba Rào cản Động & Vi cấu trúc (Stage 1 Output) [cite: 1]**
@@ -577,7 +577,7 @@ Mô phỏng Backtest được thực thi nghiêm ngặt theo chuẩn thể chế
 
 Trích xuất mức độ quan trọng trung bình của các đặc trưng (Mean Feature Importance / Gain) qua 5 Folds từ mô hình XGBoost làm rõ sự dịch chuyển về bản chất khai thác dữ liệu giữa hai phiên bản [cite: 1].
 
-![Figure 4.2](figures/Figure 4.2.png)
+![Figure 4.2](./figures/Figure%204.2.png)
 *Figure 4.2: Top 15 Information Contributing Features Ranked by Average XGBoost Gain across Purged Expanding Folds [cite: 1].*
 
 **Bảng 6: So sánh Top 15 Đặc trưng Đóng góp Lớn nhất (Feature Importance Shift) [cite: 1]**
